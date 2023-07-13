@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Song</string>
+    <string name="song_title">Song Title</string>
+    <string name="singers">Singers</string>
+    <string name="hint1">Enter song title here</string>
+    <string name="hint2">Enter singer\'s name here</string>
+    <string name="year">Year</string>
+    <string name="hint3">Enter Year of release here</string>
+    <string name="stars">Stars</string>
+    <string name="insert">INSERT</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="song_id">Song ID</string>
+    <string name="cancel">CANCEL</string>
+    <string name="show_all_songs">Show ALL songs</string>
+    <string name="show_5_stars_songs">Show 5-stars songs</string>
+</resources>
