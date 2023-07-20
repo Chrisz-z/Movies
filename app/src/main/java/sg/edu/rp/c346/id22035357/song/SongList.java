@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +18,10 @@ import java.util.ArrayList;
 public class SongList extends AppCompatActivity {
     ListView lvSong;
     ToggleButton toggleBtn;
-
     ArrayList<Song> songList;
+    CustomAdapter adapter;
 
-    ArrayAdapter<Song> aa;
+    Spinner spnYear;
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,14 +34,17 @@ public class SongList extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         lvSong = findViewById(R.id.lvSongs);
         toggleBtn = findViewById(R.id.btnToggle);
+        spnYear = findViewById(R.id.spnYear);
 
         DBHelper dbh = new DBHelper(SongList.this);
         songList = new ArrayList<>();
-        aa = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, songList);
-        lvSong.setAdapter(aa);
+        adapter = new CustomAdapter(this, R.layout.row, songList);
+        for (int i =0; i < songList.size(); i++ ){
+            songList.get(i).toString();
+        }
+        lvSong.setAdapter(adapter);
         songList.addAll(dbh.getSongs());
-        aa.notifyDataSetChanged();
-
+        adapter.notifyDataSetChanged();
 
         lvSong.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
@@ -62,20 +65,14 @@ public class SongList extends AppCompatActivity {
                 } else {
                     songList.addAll(dbh.getSongsByStars(5));
                 }
-                aa.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
         Intent intent;
-        if (id == R.id.addSong) {
-            intent = new Intent(SongList.this, AddSongs.class);
-        } else {
-            intent = new Intent(SongList.this, EditSongs.class);
-        }
+        intent = new Intent(SongList.this, AddSongs.class);
         startActivity(intent);
         return true;
 
@@ -84,7 +81,7 @@ public class SongList extends AppCompatActivity {
         DBHelper dbh = new DBHelper(SongList.this);
         songList.clear();
         songList.addAll(dbh.getSongs());
-        aa.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
     @Override

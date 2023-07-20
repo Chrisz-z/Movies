@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 public class EditSongs extends AppCompatActivity {
@@ -31,6 +32,7 @@ public class EditSongs extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
 
+
         Intent i = getIntent();
         Song obj = i.getParcelableExtra("song");
         etSongID.setText(String.valueOf(obj.getId()));
@@ -38,8 +40,6 @@ public class EditSongs extends AppCompatActivity {
         etSinger.setText(obj.getSingers());
         etYear.setText(String.valueOf(obj.getYears()));
         etSongID.setEnabled(false);
-
-
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override

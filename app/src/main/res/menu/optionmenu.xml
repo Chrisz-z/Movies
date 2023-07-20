@@ -4,8 +4,5 @@
         android:id="@+id/addSong"
         android:orderInCategory="100"
         android:title="Add Songs" />
-    <item
-        android:id="@+id/editSongs"
-        android:orderInCategory="101"
-        android:title="Edit/Delete Songs" />
+   
 </menu>

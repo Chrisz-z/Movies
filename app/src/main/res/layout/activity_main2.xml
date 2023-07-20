@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SongList">
+    tools:context=".SongList"
+    android:padding="10dp">
 
     <ToggleButton
         android:id="@+id/btnToggle"
@@ -14,6 +15,12 @@
         android:textOn="@string/show_5_stars_songs">
 
     </ToggleButton>
+
+    <Spinner
+        android:id="@+id/spnYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </Spinner>
 
     <ListView
         android:id="@+id/lvSongs"

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#800080"
+        android:text="TextView"
+        android:padding="1dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+    </TextView>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="1dp">
+    <TextView
+        android:id="@+id/textViewYear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginLeft="5dp"
+        android:padding="1dp">
+    </TextView>
+
+    <TextView
+        android:id="@+id/textViewStars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:text="TextView"
+        android:padding="1dp"
+        android:layout_marginLeft="5dp">
+    </TextView>
+
+</LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textViewSinger"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00FFFF"
+        android:padding="1dp"
+        android:text="TextView">
+    </TextView>
+</LinearLayout>
