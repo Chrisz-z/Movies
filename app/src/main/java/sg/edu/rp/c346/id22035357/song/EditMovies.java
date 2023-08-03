@@ -5,47 +5,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.Toast;
+import android.widget.Spinner;
 
 
-public class EditSongs extends AppCompatActivity {
+public class EditMovies extends AppCompatActivity {
 
-    EditText etSongID,etTitle,etSinger,etYear ;
-    RadioGroup rgStars;
-    RadioButton rbStars;
+    EditText etMovieID,etTitle, etGenre,etYear ;
+    Spinner spnRating;
     Button btnUpdate,btnDelete,btnCancel;
+    ArrayAdapter<CharSequence> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
-        etSongID = findViewById(R.id.etSongID);
-        etTitle =  findViewById(R.id.etSong);
-        etSinger = findViewById(R.id.etSinger);
+        setContentView(R.layout.activity_edit);
+        etMovieID = findViewById(R.id.etmovieID);
+        etTitle =  findViewById(R.id.etMovie);
+        etGenre = findViewById(R.id.etGenre);
         etYear = findViewById(R.id.etYear);
-        rgStars = findViewById(R.id.rgStars);
+        spnRating = findViewById(R.id.spnRating);
         btnUpdate = findViewById(R.id.btnUpdate);
         btnDelete = findViewById(R.id.btnDelete);
         btnCancel = findViewById(R.id.btnCancel);
+        adapter = ArrayAdapter.createFromResource(this,
+                R.array.movie_ratings, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnRating.setAdapter(adapter);
+
 
 
         Intent i = getIntent();
-        Song obj = i.getParcelableExtra("song");
-        etSongID.setText(String.valueOf(obj.getId()));
+        Movie obj = i.getParcelableExtra("song");
+        etMovieID.setText(String.valueOf(obj.getId()));
         etTitle.setText(obj.getTitle());
-        etSinger.setText(obj.getSingers());
+        etGenre.setText(obj.getGenre());
         etYear.setText(String.valueOf(obj.getYears()));
-        etSongID.setEnabled(false);
+        etMovieID.setEnabled(false);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper dbh = new DBHelper(EditSongs.this);
-                dbh.deleteSong(obj.getId());
+                DBHelper dbh = new DBHelper(EditMovies.this);
+                dbh.deleteMovie(obj.getId());
 
                 finish();
 
@@ -55,14 +59,12 @@ public class EditSongs extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DBHelper dbh = new DBHelper(EditSongs.this);
+                DBHelper dbh = new DBHelper(EditMovies.this);
                 obj.setTitle(etTitle.getText().toString());
-                obj.setSingers(etSinger.getText().toString());
+                obj.setGenre(etGenre.getText().toString());
                 obj.setYears(Integer.parseInt(etYear.getText().toString()));
-                int selectedId = rgStars.getCheckedRadioButtonId();
-                rbStars = findViewById(selectedId);
-                obj.setStars(Integer.parseInt(rbStars.getText().toString()));
-                dbh.updateNote(obj);
+                obj.setRating((spnRating.getSelectedItem().toString()));
+                dbh.updateMovie(obj);
                 dbh.close();
                 finish();
             }

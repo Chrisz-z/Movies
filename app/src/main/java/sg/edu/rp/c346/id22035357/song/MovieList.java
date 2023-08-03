@@ -6,23 +6,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class SongList extends AppCompatActivity {
-    ListView lvSong;
+public class MovieList extends AppCompatActivity {
+    ListView lvMovies;
     ToggleButton toggleBtn;
-    ArrayList<Song> songList;
+    ArrayList<Movie> movieList;
     CustomAdapter adapter;
-
-    Spinner spnYear;
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.optionmenu, menu);
@@ -31,27 +26,25 @@ public class SongList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        lvSong = findViewById(R.id.lvSongs);
+        setContentView(R.layout.activity_add);
+        lvMovies = findViewById(R.id.lvMovies);
         toggleBtn = findViewById(R.id.btnToggle);
-        spnYear = findViewById(R.id.spnYear);
 
-        DBHelper dbh = new DBHelper(SongList.this);
-        songList = new ArrayList<>();
-        adapter = new CustomAdapter(this, R.layout.row, songList);
-        for (int i =0; i < songList.size(); i++ ){
-            songList.get(i).toString();
-        }
-        lvSong.setAdapter(adapter);
-        songList.addAll(dbh.getSongs());
+
+        DBHelper dbh = new DBHelper(MovieList.this);
+        movieList = new ArrayList<>();
+        adapter = new CustomAdapter(this, R.layout.row, movieList);
+        lvMovies.setAdapter(adapter);
+        movieList.addAll(dbh.getMovies());
         adapter.notifyDataSetChanged();
 
-        lvSong.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        lvMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Song clickedSong = songList.get(position);
-                Intent intent = new Intent(SongList.this, EditSongs.class);
-                intent.putExtra("song", clickedSong);
+                Movie clickedMovie = movieList.get(position);
+                Intent intent = new Intent(MovieList.this, EditMovies.class);
+                intent.putExtra("song", clickedMovie);
                 startActivity(intent);
             }
         });
@@ -59,11 +52,11 @@ public class SongList extends AppCompatActivity {
         toggleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                songList.clear();
+                movieList.clear();
                 if (toggleBtn.isChecked()) {
-                    songList.addAll(dbh.getSongs());
+                    movieList.addAll(dbh.getMovies());
                 } else {
-                    songList.addAll(dbh.getSongsByStars(5));
+                    movieList.addAll(dbh.getMoviesByRating("PG13"));
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -72,15 +65,15 @@ public class SongList extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        intent = new Intent(SongList.this, AddSongs.class);
+        intent = new Intent(MovieList.this, AddMovies.class);
         startActivity(intent);
         return true;
 
     }
     private void refreshListView() {
-        DBHelper dbh = new DBHelper(SongList.this);
-        songList.clear();
-        songList.addAll(dbh.getSongs());
+        DBHelper dbh = new DBHelper(MovieList.this);
+        movieList.clear();
+        movieList.addAll(dbh.getMovies());
         adapter.notifyDataSetChanged();
     }
 

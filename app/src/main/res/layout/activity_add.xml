@@ -4,26 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SongList"
+    tools:context=".MovieList"
     android:padding="10dp">
 
     <ToggleButton
         android:id="@+id/btnToggle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textOff="@string/show_all_songs"
-        android:textOn="@string/show_5_stars_songs">
+        android:textOff="@string/show_all_movies"
+        android:textOn="@string/show_pg13_movie">
 
     </ToggleButton>
 
-    <Spinner
-        android:id="@+id/spnYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Spinner>
 
     <ListView
-        android:id="@+id/lvSongs"
+        android:id="@+id/lvMovies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

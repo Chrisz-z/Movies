@@ -3,6 +3,6 @@
     <item
         android:id="@+id/addSong"
         android:orderInCategory="100"
-        android:title="Add Songs" />
+        android:title="Add Movies" />
    
 </menu>

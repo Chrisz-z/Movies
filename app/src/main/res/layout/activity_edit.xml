@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditSongs"
-    android:orientation="vertical">
+    tools:context=".EditMovies"
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/song_id"
+        android:text="@string/movie_id"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/etSongID"
+        android:id="@+id/etmovieID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </EditText>
@@ -22,11 +22,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/song_title"
+        android:text="@string/movie_title"
         android:textSize="20sp"/>
 
     <EditText
-        android:id="@+id/etSong"
+        android:id="@+id/etMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </EditText>
@@ -34,11 +34,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/singers"
+        android:text="@string/Genre"
         android:textSize="20sp"/>
 
     <EditText
-        android:id="@+id/etSinger"
+        android:id="@+id/etGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </EditText>
@@ -59,48 +59,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stars"
+        android:text="@string/rating"
         android:textSize="20sp"/>
-    <RadioGroup
-        android:id="@+id/rgStars"
+
+    <Spinner
+        android:id="@+id/spnRating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rb1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="1">
-        </RadioButton>
+        android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/rb2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="2">
-        </RadioButton>
+    </Spinner>
 
-        <RadioButton
-            android:id="@+id/rb3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="3">
-        </RadioButton>
 
-        <RadioButton
-            android:id="@+id/rb4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="4">
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/rb5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="5">
-        </RadioButton>
-    </RadioGroup>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -5,41 +5,39 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.io.Serializable;
-
-public class Song implements Parcelable {
+public class Movie implements Parcelable {
     private int id;
     private String title;
-    private String singers;
+    private String genre;
     private int years;
-    private int stars;
+    private String rating;
 
 
-    public Song(int id, String title, String singers, int years, int stars) {
+    public Movie(int id, String title, String genre, int years, String rating) {
         this.id = id;
         this.title = title;
-        this.singers = singers;
+        this.genre = genre;
         this.years = years;
-        this.stars = stars;
+        this.rating = rating;
     }
 
-    protected Song(Parcel in) {
+    protected Movie(Parcel in) {
         id = in.readInt();
         title = in.readString();
-        singers = in.readString();
+        genre = in.readString();
         years = in.readInt();
-        stars = in.readInt();
+        rating = in.readString();
     }
 
-    public static final Creator<Song> CREATOR = new Creator<Song>() {
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
         @Override
-        public Song createFromParcel(Parcel in) {
-            return new Song(in);
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
         }
 
         @Override
-        public Song[] newArray(int size) {
-            return new Song[size];
+        public Movie[] newArray(int size) {
+            return new Movie[size];
         }
     };
 
@@ -50,16 +48,16 @@ public class Song implements Parcelable {
         return title;
     }
 
-    public String getSingers() {
-        return singers;
+    public String getGenre() {
+        return genre;
     }
 
     public int getYears() {
         return years;
     }
 
-    public int getStars() {
-        return stars;
+    public String getRating() {
+        return rating;
     }
 
     public void setId(int id) {
@@ -70,22 +68,22 @@ public class Song implements Parcelable {
         this.title = title;
     }
 
-    public void setSingers(String singers) {
-        this.singers = singers;
+    public void setGenre(String Genre) {
+        this.genre = Genre;
     }
 
     public void setYears(int years) {
         this.years = years;
     }
 
-    public void setStars(int stars) {
-        this.stars = stars;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return id + "\n" + title + "\n" + singers + "\n" + years + "\n" + stars;
+        return id + "\n" + title + "\n" + genre + "\n" + years + "\n" + rating;
     }
 
     @Override
@@ -97,8 +95,8 @@ public class Song implements Parcelable {
     public void writeToParcel(@NonNull Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(title);
-        dest.writeString(singers);
+        dest.writeString(genre);
         dest.writeInt(years);
-        dest.writeInt(stars);
+        dest.writeString(rating);
     }
 }

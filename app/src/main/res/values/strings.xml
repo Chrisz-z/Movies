@@ -1,17 +1,26 @@
 <resources>
     <string name="app_name">Song</string>
-    <string name="song_title">Song Title</string>
-    <string name="singers">Singers</string>
-    <string name="hint1">Enter song title here</string>
-    <string name="hint2">Enter singer\'s name here</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="Genre">Genre</string>
+    <string name="hint1">Enter movie title here</string>
+    <string name="hint2">Enter genre here</string>
     <string name="year">Year</string>
     <string name="hint3">Enter Year of release here</string>
-    <string name="stars">Stars</string>
+    <string name="rating">Rating</string>
     <string name="insert">INSERT</string>
     <string name="delete">DELETE</string>
     <string name="update">UPDATE</string>
-    <string name="song_id">Song ID</string>
+    <string name="movie_id">Movie ID</string>
     <string name="cancel">CANCEL</string>
-    <string name="show_all_songs">Show ALL songs</string>
-    <string name="show_5_stars_songs">Show 5-stars songs</string>
+    <string name="show_all_movies">Show ALL Movies</string>
+    <string name="show_pg13_movie">Show ALL PG-13 MOVIES</string>
+    <string-array name="movie_ratings">
+        <item>G</item>
+        <item>PG</item>
+        <item>PG13</item>
+        <item>NC16</item>
+        <item>M18</item>
+        <item>R21</item>
+    </string-array>
 </resources>
+

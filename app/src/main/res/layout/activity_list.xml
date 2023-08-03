@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddSongs"
+    tools:context=".AddMovies"
     android:orientation="vertical"
     android:padding="10dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/song_title"
+        android:text="@string/movie_title"
         android:textSize="20sp"/>
 
     <EditText
-        android:id="@+id/etSong"
+        android:id="@+id/etMovie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint1">
@@ -23,11 +23,11 @@
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="@string/singers"
+    android:text="@string/Genre"
     android:textSize="20sp"/>
 
     <EditText
-        android:id="@+id/etSinger"
+        android:id="@+id/etGenre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hint2">
@@ -50,48 +50,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/stars"
+        android:text="@string/rating"
         android:textSize="20sp"/>
-    <RadioGroup
-        android:id="@+id/rgStars"
+
+    <Spinner
+        android:id="@+id/spnRating"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <RadioButton
-            android:id="@+id/rb1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="1">
-        </RadioButton>
+        android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/rb2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="2">
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/rb3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="3">
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/rb4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="4">
-        </RadioButton>
-
-        <RadioButton
-            android:id="@+id/rb5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="5">
-        </RadioButton>
-    </RadioGroup>
+    </Spinner>
 
 
     <LinearLayout
